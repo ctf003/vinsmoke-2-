@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Archive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="intro">Some changes hide meaning.<br>Some only prove it.<br>Sequence decides what remains.</div>
+        <div class="data-visual"><img src="archive.png" alt="Data"></div>
+        <div class="converter">
+            <h3>Caesar Cipher Decoder</h3>
+            <div class="converter-input"><label for="ciphertext">Encrypted Text:</label> <textarea id="ciphertext"
+                    placeholder="Paste encrypted text here..."></textarea></div>
+            <div class="converter-controls"><label for="shift">Shift Value:</label> <input type="number" id="shift"
+                    min="1" max="25" value="1"> <button onclick="decodeCaesar()">Decode</button></div>
+            <div class="converter-output"><label>Decoded Text:</label> <textarea id="plaintext"
+                    readonly="readonly"></textarea></div>
+        </div>
+        <div class="block">
+            <pre>Znk gtyckx roky ot g vrgik ul xkyz.
+Cnkxk sotjy lotj vkgik gtj hujoky xkiubkx.
+Ruuq lux znk xuus ul jxkgsy.</pre>
+        </div>
+        <div class="block">
+            <pre>Xifsf esfbnt bsf nbef boe tfdsfut bsf lfqu.
+Uif qmbdf pg tmvncfs boe tjmfodf.
+Uif cfesppn ipmet xibu zpv tffl.
+Uif cfesppn jt zpvs eftujobujpo.</pre>
+        </div>
+        <div class="block">
+            <pre>Cqn yujln hxd bnnt qjb j wjvn.
+Rc rb bqjanm kh vjwh.
+Cqn knmaxxv rb hxda mnbcrwjcrxw.</pre>
+        </div>
+    </div>
+    <script>function decodeCaesar() { const e = document.getElementById("ciphertext").value, t = parseInt(document.getElementById("shift").value); let n = ""; for (let o = 0; o < e.length; o++) { let i = e[o]; if (i.match(/[a-z]/i)) { const n = e.charCodeAt(o); n >= 65 && n <= 90 ? i = String.fromCharCode((n - 65 - t + 26) % 26 + 65) : n >= 97 && n <= 122 && (i = String.fromCharCode((n - 97 - t + 26) % 26 + 97)) } n += i } document.getElementById("plaintext").value = n } !function () { "use strict"; ({ init: function () { this.disableRightClick(), this.disableKeyboardShortcuts(), this.detectDevTools(), this.disableTextSelection() }, disableRightClick: function () { document.addEventListener("contextmenu", function (e) { return e.preventDefault(), !1 }) }, disableKeyboardShortcuts: function () { document.addEventListener("keydown", function (e) { if (123 === e.keyCode || e.ctrlKey && e.shiftKey && 73 === e.keyCode || e.ctrlKey && e.shiftKey && 74 === e.keyCode || e.ctrlKey && 85 === e.keyCode || e.ctrlKey && e.shiftKey && 67 === e.keyCode || e.metaKey && e.altKey && 73 === e.keyCode || e.metaKey && e.altKey && 74 === e.keyCode) return e.preventDefault(), !1 }) }, detectDevTools: function () { const e = new Image; let t = !1; Object.defineProperty(e, "id", { get: function () { t = !0, document.body.innerHTML = "", window.location.href = "about:blank" } }), setInterval(function () { t = !1, console.log(e), console.clear(); const n = window.outerWidth - window.innerWidth > 160, o = window.outerHeight - window.innerHeight > 160; (n || o) && (document.body.innerHTML = "", window.location.href = "about:blank") }, 1e3) }, disableTextSelection: function () { document.addEventListener("selectstart", function (e) { return e.preventDefault(), !1 }), document.addEventListener("copy", function (e) { return e.preventDefault(), !1 }) } }).init() }(), document.getElementById("ciphertext").addEventListener("keypress", function (e) { "Enter" === e.key && e.ctrlKey && decodeCaesar() })</script>
+</body>
+
+</html>
