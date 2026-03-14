@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/TheBedroom', (req, res) => {
-    res.send('d3605d4c7815cc831c98f74c78db30b3');
+    res.send('fe60e649715fd1ee3d3da5c23cb1b81c');
 });
 
 app.use((req, res) => {
